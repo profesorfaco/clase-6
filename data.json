@@ -1,26 +1,27 @@
-[{
+[
+	{
 		"artista": "Charly García",
-		"album": "Yendo de la cama al living",
+		"album": "Pubis Angelical / Yendo de la cama al living",
 		"lanzamiento": 1982,
-		"spotify": "https://open.spotify.com/album/1oZU9a9rdlLV2AB0OCocTZ?si=pFvF6naERUGenBGQgWGR7g"
+		"spotify": "spotify:album:1oZU9a9rdlLV2AB0OCocTZ"
 	},
 	{
 		"artista": "Charly García",
 		"album": "Clics modernos",
 		"lanzamiento": 1983,
-		"spotify": "https://open.spotify.com/album/3OyBf97NOuJjhEpQHY920H?si=SZQNqMBdSVmXTJsrP-gK-A"
+		"spotify": "spotify:album:3OyBf97NOuJjhEpQHY920H"
 	},
 	{
 		"artista": "Charly García",
 		"album": "Piano Bar",
 		"lanzamiento": 1984,
-		"spotify": "https://open.spotify.com/album/17utekM9a95MchXbkbh47k?si=7ZrDw6JoRUO75K5uTu0t0w"
+		"spotify": "spotify:album:17utekM9a95MchXbkbh47k"
 	},
 	{
 		"artista": "Charly García",
 		"album": "Parte de la religión",
 		"lanzamiento": 1987,
-		"spotify": "https://open.spotify.com/album/4MrFVzdNEgxfZbJyC2RQt9?si=5h8fnXbBTFKSTNSl5nKEvA"
+		"spotify": "spotify:album:4MrFVzdNEgxfZbJyC2RQt9"
 	},
 	{
 		"artista": "Charly García",
