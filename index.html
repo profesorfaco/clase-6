@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Hola jQuery</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+	body{background:silver;}
+	.dinosaurio{display: none;}
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col py-5">
+			<p>Los que están en el aire pueden desaparecer en el aire<br />
+			Los que están en la calle pueden desaparecer en la calle<br />
+			Los amigos del barrio pueden desaparecer<br />
+			<span class="dinosaurio">Pero los dinosaurios van a desaparecer</span></p>
+			<div class="btn-group mb-5" role="group">
+			  <button type="button" class="btn btn-secondary" id="si">Aparece</button>
+			  <button type="button" class="btn btn-secondary" id="sino">Aparece - Desaparece</button>
+			  <button type="button" class="btn btn-secondary" id="no">Desaparece</button>
+			</div>
+			<h5>Escoge a tu Charly</h5>
+			<div class="clearfix pt-1 pb-4">
+				<div class="form-check-inline">
+					<label class="form-check-label">
+						<input type="radio" name="bedStatus" value="joven" checked="checked"> el joven
+					</label>
+				</div>
+				<div class="form-check-inline">
+					<label class="form-check-label">
+						<input type="radio" name="bedStatus" value="viejo"> el viejo
+					</label>
+				</div>
+				<div class="form-check-inline">
+					<label class="form-check-label">
+						<input type="radio" name="bedStatus" value="inflado"> el inflado
+					</label>
+				</div>
+			</div>
+			<img src="img/charly-joven.jpg" id="foto" class="img-fluid">
+		</div>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+// Recuerda la estructura de la oración jQuery--> $("sujeto").predicado();
+
+$(document).ready(function(){
+
+	// Partamos por una modificación al CSS, desde jQuery --> https://api.jquery.com/multiple-selector/
+
+	$( "p" ).css( "font-style", "italic");
+
+	// Agreguemos un elemento HTML antes de cada párrafo, desde jQuery --> https://api.jquery.com/before/
+
+	$( "p" ).before( "<h1>Los dinosaurios</h1>" );
+
+	// Agreguemos una clase al elemento agregado --> https://api.jquery.com/addClass/#addClass-className
+
+	$( "h1" ).addClass( "text-light");
+
+	// Revisemos los efectos básicos --> https://api.jquery.com/category/effects/basics/
+
+	$("button#si").click(function() { 
+		$( ".dinosaurio" ).show() 
+	});
+	 
+	$("button#no").click(function() { 
+		$( ".dinosaurio" ).hide() 
+	});
+
+	$("button#sino").click(function() { 
+		$( ".dinosaurio" ).toggle() 
+	});
+
+	// Cambiemos al Charly
+
+	$("input:radio[name=bedStatus]").change(function() {
+    
+        if (this.value == "joven") { 
+        	$('img#foto').attr('src','img/charly-joven.jpg');
+        	console.log("Escogiste al Charly "+this.value)
+        }
+        else if (this.value == "viejo") { 
+        	$('img#foto').attr('src','img/charly-viejo.jpg');
+        	console.log("Escogiste al Charly "+this.value)
+        }
+        else if (this.value == "inflado") { 
+        	$('img#foto').attr('src','img/charly-inflado.jpg');
+        	console.log("Escogiste al Charly "+this.value)
+        }
+    });
+
+    // Vamos a buscar información a un JSON (JavaScript Object Notation)
+
+	$.getJSON('data.json', function (data) {
+			console.log("exito, lo tenemos");
+	});     
+
+});
+</script>
+</body>
+</html>

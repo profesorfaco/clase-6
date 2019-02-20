@@ -1,0 +1,27 @@
+[
+	{
+		"artista": "Charly García",
+		"album": "Yendo de la cama al living",
+		"lanzamiento": 1982
+	},
+	{
+		"artista": "Charly García",
+		"album": "Clics modernos",
+		"lanzamiento": 1983
+	},
+	{
+		"artista": "Charly García",
+		"album": "Piano Bar",
+		"lanzamiento": 1984
+	},
+	{
+		"artista": "Charly García",
+		"album": "Parte de la religión",
+		"lanzamiento": 1987
+	},
+	{
+		"artista": "Charly García",
+		"album": "Cómo conseguir chicas",
+		"lanzamiento": 1989
+	}			
+]
