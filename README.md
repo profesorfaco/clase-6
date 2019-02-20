@@ -13,17 +13,19 @@ Sumamos también, desde CSS, la posibilidad de usar familias tipográficas espec
 
 Estas exploraciones las hemos facilitado mediante Bootstrap: *framework* para el diseño de sitios y aplicaciones web *responsive*, que ofrece la definición previa de una amplia gama de componentes, que podemos consultar en https://getbootstrap.com/docs/4.3/getting-started/introduction/
 
-Muchos de los componentes de Bootstrap requieren el uso de JavaScrip para funcionar. Específicamente, requiere de las bibliotecas jQuery, Popper y una biblioteca de Bootstrap.
+Muchos de los componentes de Bootstrap requieren el uso del lenguaje de programación JavaScript para funcionar. Específicamente, requiere de las bibliotecas jQuery, Popper y una biblioteca de Bootstrap.
 
 #### jQuery
 
-Entre las bibliotecas de JavaScript que se utilizan en Bootstrap, la más popular es jQuery. Esta biblioteca nos permite simplificar la manera de manipular el DOM, para agregar interacción y dinamismo a cada página web.
+Entre las bibliotecas de JavaScript que se utilizan en Bootstrap, la más popular es jQuery. Esta biblioteca nos permite simplificar la manera de manipular el [DOM](https://es.wikipedia.org/wiki/Document_Object_Model), para agregar interacción y dinamismo a cada página web.
 
 La sintaxis de jQuery, simplificada, es `$(selector).acción()`
 
-El signo `$` indica el uso de jQuery
-El `(selector)` indica qué elemento(s) será(n) afectado(s)
-La `acción()` después del punto indica el modo en que se afectará(n) tal(es) elementos
+- El signo `$` indica el uso de jQuery
+
+- El `(selector)` indica qué elemento(s) será(n) afectado(s)
+
+- La `acción()` después del punto indica el modo en que se afectará(n) tal(es) elementos
 
 Por ejemplo, puedo escribir `$(".test").hide()` para indicar que quiero esconder (*hide*) a todos los elementos con clase `test`. ¿Pero bajo qué condiciones quiero esconderlos? Esa condición aún no la defino, y podría hacerlo de la siguiente manera:
  
