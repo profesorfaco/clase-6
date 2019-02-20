@@ -21,11 +21,11 @@ Entre las bibliotecas de JavaScript que se utilizan en Bootstrap, la más popula
 
 La sintaxis de jQuery, simplificada, es `$(selector).acción()`
 
-- El signo `$` indica el uso de jQuery
+- El signo `$` marca el inicio de una "oración" en jQuery.
 
-- El `(selector)` indica qué elemento(s) será(n) afectado(s)
+- El `(selector)` es el "sujeto".
 
-- La `acción()` después del punto indica el modo en que se afectará(n) tal(es) elementos
+- La `(acción)`, después del punto, es el "predicado".
 
 Por ejemplo, puedo escribir `$(".test").hide()` para indicar que quiero esconder (*hide*) a todos los elementos con clase `test`. ¿Pero bajo qué condiciones quiero esconderlos? Esa condición aún no la defino, y podría hacerlo de la siguiente manera:
  
@@ -35,32 +35,37 @@ $("button").click(function(){
 });
 ```
 
-Esto dice que al presionar el botón, se esconda (*hide*) todo elemento con clase `test`, y que eso se demore 1000 milisegundos.
+Allí tenemos dos "oraciones". La primera tiene como sujeto a cualquier botón (*button*) y la segunda tiene como sujeto a cualquier elemento de clase *test*. El predicado de la primera es "hacer click" (*click*), mientras el predicado de la segunda es "esconder" (*hide*). Si nos fijamos en los paréntesis `({` y `})`, podemos notar que la segunda oración depende de la primera, con lo que se realizará la acción de la segunda sí y sólo sí se realiza la acción de la primera.
 
-Una recomendación para el uso de jQuery es escribirlo en un contexto que asegure que el documente esté completamente cargado:
+A propósito de paréntesis, una recomendación: Escribir las "oraciones" de jQuery en un contexto que asegure que el documento esté completamente cargado
 
 ```
 $(document).ready(function(){
 
-  // escribe lo que quieras aquí dentro
+  // aquí dentro irían todas las "oraciones" de jQuery que necesitemos.
 
 });
 ```
 
-Y como jQuery es una biblioteca de JavaScript, corresponde "adjuntarla" al documento donde se le quiera usar, y luego complementarla con el uso específico requerido, entre las etiquetas `<script></script>`, por ejemplo:
+Y como jQuery es una biblioteca de JavaScript, corresponde llamarla como recurso en el documento donde se la quiera aprovechar, para luego escribir las "oraciones" que correspondan entre las etiquetas `<script></script>`. 
+
+Si juntamos todo lo que hemos expuesto, un fragmento del documento HTML que utilice jQuery podría verse así:
 
 ```
-<button type="button">¡Desaparece!</button>
-<p class="test">Creo que voy a desaparecer</p>
+<button type="button">Soy un botón</button>
+
+<p>Los que están en el aire pueden desaparecer en el aire<br />
+Los que están en la calle pueden desaparecer en la calle<br />
+Los amigos del barrio pueden desaparecer<br />
+<span class="test">Pero los dinosaurios van a desaparecer</span></p>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 <script>
 $(document).ready(function(){
 	$("button").click(function(){
-	  $(".test").hide(1000);
+		$(".test").hide(1000);
 	});
 });
 </script>
 ```
-
