@@ -6,8 +6,9 @@
 <title>Hola jQuery</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style>
-	body{background:silver;}
+	body{background:rgba(200,200,200,1);}
 	.dinosaurio{display: none;}
+	img{border-radius: 5px;}
 </style>
 </head>
 <body>
@@ -42,7 +43,9 @@
 					</label>
 				</div>
 			</div>
-			<img src="img/charly-joven.jpg" id="foto" class="img-fluid">
+			<img src="img/charly-joven.jpg" id="foto" class="img-fluid mb-5">
+			<h6>La discografía ochentera del Charly Solista, incluye:</h6>
+			<ul id="discografia" class="list-unstyled"></ul>
 		</div>
 	</div>
 </div>
@@ -52,11 +55,11 @@
 
 $(document).ready(function(){
 
-	// Partamos por una modificación al CSS, desde jQuery --> https://api.jquery.com/multiple-selector/
+	// Partamos por una modificación al CSS --> https://api.jquery.com/multiple-selector/
 
 	$( "p" ).css( "font-style", "italic");
 
-	// Agreguemos un elemento HTML antes de cada párrafo, desde jQuery --> https://api.jquery.com/before/
+	// Agreguemos un elemento HTML antes de cada párrafo --> https://api.jquery.com/before/
 
 	$( "p" ).before( "<h1>Los dinosaurios</h1>" );
 
@@ -64,7 +67,7 @@ $(document).ready(function(){
 
 	$( "h1" ).addClass( "text-light");
 
-	// Revisemos los efectos básicos --> https://api.jquery.com/category/effects/basics/
+	// Revisemos efectos básicos, condicionados por el click --> https://api.jquery.com/category/effects/basics/
 
 	$("button#si").click(function() { 
 		$( ".dinosaurio" ).show() 
@@ -78,7 +81,7 @@ $(document).ready(function(){
 		$( ".dinosaurio" ).toggle() 
 	});
 
-	// Cambiemos al Charly
+	// Cambiemos la foto de Charly García, según el input tipo radio que esté chequeado
 
 	$("input:radio[name=bedStatus]").change(function() {
     
@@ -96,15 +99,30 @@ $(document).ready(function(){
         }
     });
 
-    // Vamos a buscar información a un JSON (JavaScript Object Notation)
+    // Para cerrar, vamos a buscar información a un JSON (JavaScript Object Notation) en línea
 
-	$.getJSON('https://raw.githubusercontent.com/profesorfaco/clase-6/master/data.json', function (data) {
+	$.getJSON('https://raw.githubusercontent.com/profesorfaco/clase-6/gh-pages/data.json', function (data) {
+		
+		// imprimo un aviso en la consola de JavaScript del navegador
+		
 			console.log("¡Ya tenemos los datos del JSON!");
-			$( "h1" ).after( "<p class=\"small\">Este tema aparece en el disco \""+ data[1]["album"] + "\", lanzado en " + data[1]["lanzamiento"] +".</p>");			
-
+		
+		// aprovecho la información del JSON para escribir un párrafo bajo el título principal
+		
+			$( "h1" ).after( "<p class=\"small\">Este tema de " + data[1]["artista"] + " aparece en el disco \""+ data[1]["album"] + "\", de " + data[1]["lanzamiento"] +".</p>");
+		
+		// finalmente creo un ciclo para ir por cada disco, y agregarlo como ítem al listado de identidad discografía 			
+		
+			for (var a = 0; a < data.length; a++){
+				$( "ul#discografia" ).append( "<li><a href=\"" + data[a]["spotify"] + "\">" + data[a]["album"] +" ("+ data[a]["lanzamiento"] +")</a></li>" );
+			}			
+	
 	});
 
 });
+
+// ¡Para esto, y más, nos sirve jQuery!
+
 </script>
 </body>
 </html>
