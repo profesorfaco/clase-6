@@ -5,7 +5,7 @@
 
 Primero nos acercamos a **HTML** explorando algunas etiquetas (*tags*) y sus correspondientes atributos, para poder definir [los elementos HTML](https://developer.mozilla.org/es/docs/Web/HTML/Elemento) que, a su vez, definen los contenidos de cada página web.
 
-Entre los elementos explorados hay una grupo particular que no podemos descuidar, que son los metadatos. Con ellos podemos hacer definiciones claves respecto de los caracteres y la proporción de ventana de navegador que utilizará nuestra página web. Con ellos también podemos presentar la página para ser ubicada por los buscadores y compartida en redes sociales (https://megatags.co/).
+Entre los elementos explorados hay un grupo particular que no podemos descuidar, que son los metadatos. Con ellos podemos hacer definiciones claves respecto de los caracteres y la proporción de ventana de navegador que utilizará nuestra página web. Con ellos también podemos presentar la página para ser ubicada por los buscadores y compartida en redes sociales (https://megatags.co/).
 
 Luego nos acercamos a **CSS** explorando [distintas propiedades](https://developer.mozilla.org/es/docs/Web/CSS/Referencia_CSS#%C3%8Dndice_de_palabras_clave), con sus correspondientes valores, para poder definir las reglas CSS que, a su vez, definen la visualización de los contenidos de cada página web. 
 
