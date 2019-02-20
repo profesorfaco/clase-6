@@ -46,7 +46,7 @@
 		</div>
 	</div>
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 // Recuerda la estructura de la oración jQuery--> $("sujeto").predicado();
 
@@ -98,9 +98,11 @@ $(document).ready(function(){
 
     // Vamos a buscar información a un JSON (JavaScript Object Notation)
 
-	$.getJSON('data.json', function (data) {
-			console.log("exito, lo tenemos");
-	});     
+	$.getJSON('https://raw.githubusercontent.com/profesorfaco/clase-6/master/data.json', function (data) {
+			console.log("¡Ya tenemos los datos del JSON!");
+			$( "h1" ).after( "<p class=\"small\">Este tema aparece en el disco \""+ data[1]["album"] + "\", lanzado en " + data[1]["lanzamiento"] +".</p>");			
+
+	});
 
 });
 </script>
