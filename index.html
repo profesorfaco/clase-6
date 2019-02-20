@@ -6,84 +6,82 @@
 <title>Hola jQuery</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style>
-	body{background:rgba(200,200,200,1);}
+	body{background:linear-gradient(to bottom, rgba(190,190,190,1) 0%, rgba(245,245,245,1) 100%);}
 	.dinosaurio{display: none;}
-	img{border-radius: 5px;}
+	img{border-radius: 0.25rem; box-shadow: 0 0 0.5rem rgba(100,100,100,0.5);}	
 </style>
 </head>
 <body>
-
-<div class="container">
+<div class="container pb-5">
 	<div class="row">
-		<div class="col py-5">
+		<div class="col-sm-10 col-md-8 col-lg-6 mx-auto py-5">
 			<p>Los que están en el aire pueden desaparecer en el aire<br />
 			Los que están en la calle pueden desaparecer en la calle<br />
 			Los amigos del barrio pueden desaparecer<br />
 			<span class="dinosaurio">Pero los dinosaurios van a desaparecer</span></p>
 			<div class="btn-group mb-5" role="group">
-			  <button type="button" class="btn btn-secondary" id="si">Aparece</button>
-			  <button type="button" class="btn btn-secondary" id="sino">Aparece - Desaparece</button>
-			  <button type="button" class="btn btn-secondary" id="no">Desaparece</button>
+			  <button type="button" class="btn btn-sm btn-primary" id="si">Aparece</button>
+			  <button type="button" class="btn btn-sm btn-primary" id="sino">Aparece - Desaparece</button>
+			  <button type="button" class="btn btn-sm btn-primary" id="no">Desaparece</button>
 			</div>
 			<h5>Escoge a tu Charly</h5>
 			<div class="clearfix pt-1 pb-4">
 				<div class="form-check-inline">
 					<label class="form-check-label">
-						<input type="radio" name="bedStatus" value="joven" checked="checked"> el joven
+						<input type="radio" name="charlies" value="joven" checked="checked"> el joven
 					</label>
 				</div>
 				<div class="form-check-inline">
 					<label class="form-check-label">
-						<input type="radio" name="bedStatus" value="viejo"> el viejo
+						<input type="radio" name="charlies" value="viejo"> el viejo
 					</label>
 				</div>
 				<div class="form-check-inline">
 					<label class="form-check-label">
-						<input type="radio" name="bedStatus" value="inflado"> el inflado
+						<input type="radio" name="charlies" value="inflado"> el inflado
 					</label>
 				</div>
 			</div>
 			<img src="img/charly-joven.jpg" id="foto" class="img-fluid mb-5">
-			<h6>La discografía ochentera del Charly Solista, incluye:</h6>
+			<h6>La discografía ochentera del Charly solista, incluye:</h6>
 			<ul id="discografia" class="list-unstyled"></ul>
 		</div>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-// Recuerda la estructura de la oración jQuery--> $("sujeto").predicado();
-
+// Recordemos la estructura de cada "oración" en jQuery = $("sujeto").predicado();
 $(document).ready(function(){
 
-	// Partamos por una modificación al CSS --> https://api.jquery.com/multiple-selector/
+	// Partamos por una modificación al CSS = https://api.jquery.com/multiple-selector/
 
-	$( "p" ).css( "font-style", "italic");
+	$("p").css("font-style", "italic");
 
-	// Agreguemos un elemento HTML antes de cada párrafo --> https://api.jquery.com/before/
+	// Agreguemos un elemento HTML antes de cada párrafo = https://api.jquery.com/before/
 
-	$( "p" ).before( "<h1>Los dinosaurios</h1>" );
+	$("p").before("<h1 class=\"display-4\">Los dinosaurios</h1>");
 
-	// Agreguemos una clase al elemento agregado --> https://api.jquery.com/addClass/#addClass-className
+	// Agreguemos una clase al elemento agregado = https://api.jquery.com/addClass/#addClass-className
 
-	$( "h1" ).addClass( "text-light");
+	$("h1").addClass("text-light");
 
-	// Revisemos efectos básicos, condicionados por el click --> https://api.jquery.com/category/effects/basics/
+	// Revisemos efectos básicos, condicionados por el click = https://api.jquery.com/category/effects/basics/
 
 	$("button#si").click(function() { 
-		$( ".dinosaurio" ).show() 
+		$(".dinosaurio").show() 
 	});
 	 
 	$("button#no").click(function() { 
-		$( ".dinosaurio" ).hide() 
+		$(".dinosaurio").hide() 
 	});
 
 	$("button#sino").click(function() { 
-		$( ".dinosaurio" ).toggle() 
+		$(".dinosaurio").toggle() 
 	});
 
-	// Cambiemos la foto de Charly García, según el input tipo radio que esté chequeado
+	// Cambiemos la foto de Charly García, según el input que esté chequeado
 
-	$("input:radio[name=bedStatus]").change(function() {
+	$("input:radio[name=charlies]").change(function() {
     
         if (this.value == "joven") { 
         	$('img#foto').attr('src','img/charly-joven.jpg');
@@ -103,15 +101,23 @@ $(document).ready(function(){
 
 	$.getJSON('https://raw.githubusercontent.com/profesorfaco/clase-6/gh-pages/data.json', function (data) {
 		
-		// imprimo un aviso en la consola de JavaScript del navegador
+		// Un aviso en la consola de JavaScript para cuando se obtenga el JSON
 		
 			console.log("¡Ya tenemos los datos del JSON!");
 		
-		// aprovecho la información del JSON para escribir un párrafo bajo el título principal
+		// Parte de la información del JSON puede asignarse como contenidos a nuevas variables
+
+		// Con las nuevas variables puede construirse un párrafo
+
+			var solista = data[1]["artista"];
+
+			var lp = data[1]["album"];
+			
+			var fecha = data[1]["lanzamiento"];
 		
-			$( "h1" ).after( "<p class=\"small\">Este tema de " + data[1]["artista"] + " aparece en el disco \""+ data[1]["album"] + "\", de " + data[1]["lanzamiento"] +".</p>");
+			$( "h1" ).after( "<p class=\"small\">Este tema de " + solista + " es parte del disco " + lp + ", de " + fecha +".</p>");
 		
-		// finalmente creo un ciclo para ir por cada disco, y agregarlo como ítem al listado de identidad discografía 			
+		// Finalmente usamos un ciclo para ir por cada disco, y agregarlo como ítem al listado de identidad discografía 			
 		
 			for (var a = 0; a < data.length; a++){
 				$( "ul#discografia" ).append( "<li><a href=\"" + data[a]["spotify"] + "\">" + data[a]["album"] +" ("+ data[a]["lanzamiento"] +")</a></li>" );
@@ -120,9 +126,8 @@ $(document).ready(function(){
 	});
 
 });
-
 // ¡Para esto, y más, nos sirve jQuery!
-
+</script>
 </script>
 </body>
 </html>
