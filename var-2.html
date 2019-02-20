@@ -10,6 +10,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col py-5">
+			<select name="menu" class="mb-4" onchange="location = this.value;">
+				<option>Variables con…</option>
+				<option value="var-0.html">números y letras</option>
+				<option value="var-1.html">arreglos</option>
+				<option value="var-2.html">objetos</option>
+			</select>
 			<div class="progress" id="grafico"></div>
 		</div>
 	</div>
@@ -20,10 +26,10 @@ $(document).ready(function(){
 	// creo una variable data, y le asigno un objeto como contenido.
 	var data = [
 		{ item: "Metropolitana", total: 40, color: "bg-success" },
-		{ item: "Valpo", total: 10, color: "bg-alert" },
-		{ item: "Biobío", total: 9, color: "bg-warning"},
-		{ item: "Maule", total: 6, color: "bg-info"},
-		{ item: "Demás", total: 35, color: "bg-secondary"}
+		{ item: "Valpo", total: 10, color: "bg-primary" },
+		{ item: "Biobío", total: 9, color: "bg-info"},
+		{ item: "Maule", total: 6, color: "bg-warning"},
+		{ item: "Demás", total: 35, color: "bg-danger"}
 	];
 	// un ciclo for para repetir una acción que afecta a un div de identidad gráfico.		
 	for (var a = 0; a < data.length; a++){

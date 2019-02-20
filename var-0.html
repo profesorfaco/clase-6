@@ -10,6 +10,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col py-5">
+			<select name="menu" class="mb-4" onchange="location = this.value;">
+				<option>Variables con…</option>
+				<option value="var-0.html">números y letras</option>
+				<option value="var-1.html">arreglos</option>
+				<option value="var-2.html">objetos</option>
+			</select>
 			<div id="grafico"></div>
 		</div>
 	</div>
@@ -17,12 +23,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-	// creo una variable data, y le asigno un arreglo como contenido.
+	// creo una variable porcentaje, y le asigno un número como contenido.
+	var porcentaje = 40;	
+	// creo una variable nombre, y le asigno una cadena de caracteres como contenido.
 	var nombre = "Región Metropolitana";
-	// creo una variable color, y le asigno un arreglo como contenido.
-	var porcentaje = 40;
 	// un ciclo for para repetir una acción que afecta a un div de identidad gráfico.		
-	$("div#grafico").append("En la " + nombre + " habita el " + porcentaje + "% de la población nacional")
+	$("div#grafico").append("<p class=\"lead\">En la " + nombre + " habita el " + porcentaje + "% de la población nacional</p>")
 });
 </script>
 </body>
