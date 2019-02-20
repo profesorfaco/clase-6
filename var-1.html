@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Hola jQuery</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col py-5">
+			<div class="progress" id="grafico"></div>
+		</div>
+	</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	// creo una variable data, y le asigno un arreglo como contenido.
+	var data = [ 40, 10, 9, 6, 35 ];
+	// creo una variable color, y le asigno un arreglo como contenido.
+	var color = ["bg-success","bg-primary","bg-info","bg-warning","bg-danger"];
+	// un ciclo for para repetir una acción que afecta a un div de identidad gráfico.		
+	for (var a = 0; a < data.length; a++){
+		$("div#grafico").append("<div class=\"progress-bar "+ color[a] + "\" role=\"progressbar\" style=\"width:"+ data[a] +"%\" aria-valuenow=\""+ data[a] +"\" aria-valuemin=\"0\" aria-valuemax=\"100\">"+ data[a] +"</div>")
+	}
+});
+</script>
+</body>
+</html>
