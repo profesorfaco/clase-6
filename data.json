@@ -2,26 +2,31 @@
 	{
 		"artista": "Charly García",
 		"album": "Yendo de la cama al living",
-		"lanzamiento": 1982
+		"lanzamiento": 1982,
+		"spotify":"https://open.spotify.com/album/1oZU9a9rdlLV2AB0OCocTZ?si=pFvF6naERUGenBGQgWGR7g"
 	},
 	{
 		"artista": "Charly García",
 		"album": "Clics modernos",
-		"lanzamiento": 1983
+		"lanzamiento": 1983,
+		"spotify":"https://open.spotify.com/album/3OyBf97NOuJjhEpQHY920H?si=SZQNqMBdSVmXTJsrP-gK-A"
 	},
 	{
 		"artista": "Charly García",
 		"album": "Piano Bar",
-		"lanzamiento": 1984
+		"lanzamiento": 1984,
+		"spotify":"https://open.spotify.com/album/17utekM9a95MchXbkbh47k?si=7ZrDw6JoRUO75K5uTu0t0w"
 	},
 	{
 		"artista": "Charly García",
 		"album": "Parte de la religión",
-		"lanzamiento": 1987
+		"lanzamiento": 1987,
+		"spotify":"https://open.spotify.com/album/4MrFVzdNEgxfZbJyC2RQt9?si=5h8fnXbBTFKSTNSl5nKEvA"
 	},
 	{
 		"artista": "Charly García",
 		"album": "Cómo conseguir chicas",
-		"lanzamiento": 1989
+		"lanzamiento": 1989,
+		"spotify":"https://open.spotify.com/album/7150qYQFyVskNOFtw5oCPr?si=XDtssPOIS2KKSeua_I0zTQ"
 	}			
 ]
