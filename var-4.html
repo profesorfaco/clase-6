@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Hola jQuery</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style>body{background:linear-gradient(90deg, rgba(255, 55, 155, 1) 40%, rgba(200, 200, 200, 1) 40%);}</style>
+<style>.progress, .progress-bar{height:10rem;}</style>
 </head>
 <body>
 <div class="container">
@@ -13,24 +13,25 @@
 		<div class="col py-5">
 			<select name="menu" class="mb-4" onchange="location = this.value;">
 				<option value="var-0.html">introducción</option>
-				<option value="var-1.html" selected>números y letras</option>
+				<option value="var-1.html">números y letras</option>
 				<option value="var-2.html">arreglos</option>
 				<option value="var-3.html">objetos</option>
-				<option value="var-4.html">json</option>
+				<option value="var-4.html" selected>json</option>
 			</select>
-			<div id="frase"></div>
+			<p id="tiempo" class="lead"></p>
 		</div>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-// una variable porcentaje, a la que le asigno un número como contenido.
-	var porcentaje = 40;	
-// una variable nombre, a la que le asigno una cadena de caracteres como contenido.
-	var nombre = "Región Metropolitana";
-// ahora aprovecho las variables para construir una frase.		
-	$("div#frase").append("<p class=\"lead\">En la " + nombre + " habita el " + porcentaje + "% de la población nacional</p>")
+	var urlCityID = 3871336;
+	var urlApiKey = "001b0f58045147663b1ea518d34d88b4";
+	var url = "https://api.openweathermap.org/data/2.5/weather?id=" + urlCityID + "&units=metric" + "&appid=" + urlApiKey;
+	$.getJSON(url, function (data) {
+		console.log(data);
+		$("p#tiempo").append("En este momento hay " + data["main"]["temp"] + "º C en " + data["name"] + ", con una humedad del " + data["main"]["humidity"] + "%");
+	});
 });
 </script>
 </body>
