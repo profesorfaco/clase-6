@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Hola jQuery</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>.progress, .progress-bar{height:10rem;}</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col py-5">
+			<select name="menu" class="mb-4" onchange="location = this.value;">
+				<option value="var-0.html">introducción</option>
+				<option value="var-1.html">números y letras</option>
+				<option value="var-2.html">arreglos</option>
+				<option value="var-3.html">objeto</option>
+				<option value="var-4.html">json</option>
+				<option value="var-5.html" selected>geojson</option>
+			</select>
+			<p id="temblores" class="lead"></p>
+			<div id="detalles" class="row small"></div>
+		</div>
+	</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson", function (data) {
+		console.log(data);
+		// Primero armo la frase
+		var total = data["metadata"]["count"];
+		$("p#temblores").append("A nivel mundial, la USGS ha registrado " + total + " temblores de magnitud igual o superior a los M 4.5 en las últimas 24 hrs. En detalle:");
+		// Luego genero un listado con detalles mediante un ciclo for
+		for (var a = 0; a < total; a++){
+			$("div#detalles").append("<div class=\"col-6 col-sm-4 col-md-3 py-2 mb-3\"><div class=\"card\"><div class=\"card-body\"><strong>M" + data["features"][a]["properties"]["mag"] + "</strong> - " + data["features"][a]["properties"]["place"] +" (" + "<a href=\"https://www.google.com/maps/@" + data["features"][a]["geometry"]["coordinates"][1] + "," + data["features"][a]["geometry"]["coordinates"][0] + ",7z\" target=\"_blank\">" + "ver mapa</a>).</div></div></div>")
+		}
+	});
+});
+</script>
+</body>
+</html>
