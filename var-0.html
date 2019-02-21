@@ -11,25 +11,35 @@
 	<div class="row">
 		<div class="col py-5">
 			<select name="menu" class="mb-4" onchange="location = this.value;">
-				<option>Variables con…</option>
-				<option value="var-0.html">números y letras</option>
-				<option value="var-1.html">arreglos</option>
-				<option value="var-2.html">objetos</option>
+				<option value="var-0.html" selected>introducción</option>
+				<option value="var-1.html">números y letras</option>
+				<option value="var-2.html">arreglos</option>
+				<option value="var-3.html">objetos</option>
 			</select>
-			<div id="grafico"></div>
+			<div id="frase">
+				<p class="lead">Variables en JavaScript</p>
+				<p>Para crear una variable en este lenguaje de programación, primero se escribe <code>var</code> y luego se escribe su nombre. El nombre no puede comenzar con números; se debe usar solo una palabra, sin tildes ni acentos. Después del nombre viene el signo igual, el que debe ser seguido por el contenido de la variable.</p>
+				<p>
+					<code>var numeros = 33; var letras = "Francisca"; var arreglo = [33, "Francisca"]; var objeto = {edad:33, nombre:"Francisca"};</code>
+				</p>
+				<p class="lead">Consulta de variables en JavaScript</p>
+				<p>La consulta por la variable <code>numeros</code> me entregará 33, mientras que la consulta por la variable <code>letras</code> me entergará Francisca.</p>
+				<p>La consulta por <code>arreglo[0]</code> me entregará 33, porque estoy pidiendo la primera posición del arreglo (en programación la primera posición es 0, la segunda es 1, y así sucesivamente).</p>
+				<p>La consulta por <code>objeto["edad"]</code> me entregaría 33, porque estoy pidiendo las cosas su nombre.</p>
+				<p>En los ejemplos ya es evidente la posibilidad de mezclar tipos de variables, como en un arreglo que contiene objetos:</p>
+				<p><code>var pareja = [{edad:33, nombre:"Francisca"}, {edad:38, nombre:"Felipe"}];</code></p>
+				<p>Luego, si quiero obtener "<span></span>" de la variable <code>pareja</code>, tendría que escribir <code>pareja[0]["nombre"]</code>.</p>
+			</div>
 		</div>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-// creo una variable porcentaje, y le asigno un número como contenido.
-	var porcentaje = 40;	
-// creo una variable nombre, y le asigno una cadena de caracteres como contenido.
-	var nombre = "Región Metropolitana";
-// un poco de jQuery para agregar una frase construida con variables.		
-	$("div#grafico").append("<p class=\"lead\">En la " + nombre + " habita el " + porcentaje + "% de la población nacional</p>")
-});
+	var pareja = [{edad:33, nombre:"Francisca"}, {edad:38, nombre:"Felipe"}];
+	console.log(pareja);
+	$("span").append(pareja[0]["nombre"]);
+});	
 </script>
 </body>
 </html>

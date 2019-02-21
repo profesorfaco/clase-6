@@ -14,8 +14,8 @@
 			<select name="menu" class="mb-4" onchange="location = this.value;">
 				<option value="var-0.html">introducción</option>
 				<option value="var-1.html">números y letras</option>
-				<option value="var-2.html" selected>arreglos</option>
-				<option value="var-3.html">objetos</option>
+				<option value="var-2.html">arreglos</option>
+				<option value="var-3.html" selected>objetos</option>
 			</select>
 			<div class="progress" id="barras"></div>
 		</div>
@@ -24,13 +24,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-// una variable data, a la que le asigno un arreglo como contenido.
-	var data = [ 40, 10, 9, 6, 35 ];
-// una variable color, a la que le asigno un arreglo como contenido.
-	var color = ["bg-danger","bg-warning","bg-info","bg-primary","bg-secondary"];
+// una variable data, a la que le asigno un objeto como contenido.
+	var data = [ 
+		{ item: "Metropolitana", total: 40, color: "bg-danger" }, 
+		{ item: "Valparaíso", total: 10, color: "bg-warning" }, 
+		{ item: "Biobío", total: 9, color: "bg-info"}, 
+		{ item: "Maule", total: 6, color: "bg-primary"}, 
+		{ item: "todas las demás", total: 35, color: "bg-secondary"} 
+	];
 // un ciclo for para repetir una acción que afecta a un div de identidad barras.		
 	for (var a = 0; a < data.length; a++){
-		$("div#barras").append("<div class=\"progress-bar "+ color[a] + "\" role=\"progressbar\" style=\"width:"+ data[a] +"%\" aria-valuenow=\""+ data[a] +"\" aria-valuemin=\"0\" aria-valuemax=\"100\">"+ data[a] +"%</div>")
+		$("div#barras").append("<div class=\"progress-bar "+ data[a]["color"] + "\" role=\"progressbar\" style=\"width:"+ data[a]["total"] +"%\" aria-valuenow=\""+ data[a]["total"] +"\" aria-valuemin=\"0\" aria-valuemax=\"100\">"+ data[a]["item"] +"</div>")
 	}
 });
 </script>
